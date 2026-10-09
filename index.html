@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-header {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f4f6ff;
+        }
+
+        .profile-header img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 12px #ccc;
+            margin-bottom: 15px;
+        }
+
+        .profile-header h1 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .course {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .roll {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .profile-details {
+            padding: 25px 30px;
+        }
+
+        .profile-details h2 {
+            color: #5b5fc7;
+            font-size: 20px;
+            margin: 20px 0 12px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .profile-details h2:first-child {
+            margin-top: 0;
+        }
+
+        .profile-details p {
+            color: #444;
+            margin: 12px 0;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0 25px;
+        }
+
+        .skills span {
+            background: #e8ebff;
+            color: #4c51bf;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #4c51bf;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .profile-details {
+                padding: 22px 18px;
+            }
+
+            .profile-header h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile-container">
+
+        <div class="profile-header">
+            <img
+                src="https://placehold.co/150x150?text=Student"
+                alt="Student Photo"
+            >
+
+            <h1 id="studentName">Rahul Sharma</h1>
+            <p class="course" id="course">B.Tech - Computer Science</p>
+            <p class="roll">Roll No: 2026001</p>
+        </div>
+
+        <div class="profile-details">
+
+            <h2>Personal Information</h2>
+
+            <p><strong>Email:</strong>
+                <span id="email">rahul@example.com</span>
+            </p>
+
+            <p><strong>Phone:</strong>
+                <span id="phone">9876543210</span>
+            </p>
+
+            <p><strong>Age:</strong>
+                <span id="age">20</span>
+            </p>
+
+            <p><strong>Address:</strong>
+                <span id="address">Lucknow, Uttar Pradesh</span>
+            </p>
+
+            <h2>Academic Details</h2>
+
+            <p><strong>College:</strong>
+                <span id="college">ABC Engineering College</span>
+            </p>
+
+            <p><strong>Semester:</strong>
+                <span id="semester">3rd Semester</span>
+            </p>
+
+            <p><strong>CGPA:</strong>
+                <span id="cgpa">8.5 / 10</span>
+            </p>
+
+            <h2>Skills</h2>
+
+            <div class="skills" id="skills">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Python</span>
+            </div>
+
+            <button onclick="editProfile()">Edit Profile</button>
+
+        </div>
+    </div>
+
+    <script>
+        function editProfile() {
+            const fields = [
+                ["studentName", "Enter your name"],
+                ["email", "Enter your email"],
+                ["phone", "Enter your phone number"],
+                ["age", "Enter your age"],
+                ["address", "Enter your address"],
+                ["course", "Enter your course"],
+                ["college", "Enter your college name"],
+                ["semester", "Enter your semester"],
+                ["cgpa", "Enter your CGPA"]
+            ];
+
+            for (const [id, message] of fields) {
+                const element = document.getElementById(id);
+                const currentValue = element.textContent;
+                const newValue = prompt(message, currentValue);
+
+                if (newValue !== null && newValue.trim() !== "") {
+                    element.textContent = newValue.trim();
+                }
+            }
+
+            alert("Student profile updated successfully!");
+        }
+    </script>
+
+</body>
+</html>
+ 
